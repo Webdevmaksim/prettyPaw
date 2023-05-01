@@ -1,0 +1,11 @@
+body {
+  font-family: 'Montserrat';
+  background-color: $back;
+  color: $main;
+}
+.header{
+  &__logo{
+    // color: $main;
+    background-color: $main;
+  }
+}
