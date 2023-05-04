@@ -1,7 +1,10 @@
 body {
-  font-family: 'Montserrat';
-  background-color: $back;
+  font-family: Mulish;
+  font-weight: 300;
   color: $main;
+  background-color: $back;
+  line-height: 1.4;
+  font-size: 16px;
 }
 .header{
   &__logo{
