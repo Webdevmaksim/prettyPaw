@@ -1,10 +1,10 @@
-import imagemin from "imagemin";
+import imagemin from "imagemin-keep-folder";
 import imageminWebp from "imagemin-webp";
 
 await imagemin(
     ['src/img/**/*.{jpg,png}'],
     {
-        destination: '/src/img',
+        destination: 'src/img/',
         plugins:[
             imageminWebp({quality: 70}),
         ]
