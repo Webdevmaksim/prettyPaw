@@ -1,0 +1,37 @@
+.btn{
+    display: inline-flex;
+    border-radius: 80px;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 1000;
+    &--arrow{
+        position: relative;
+        font-size: 20px;
+        padding: 10px 20px;
+        color: $back;
+        background: $second;
+        padding-right: 58px;
+        cursor: pointer;
+        &::before{
+            position: absolute;
+            content: "";
+            display: block;
+            width: 16px;
+            height: 16px;
+            background: url("/src/img/btn/arrow-right.svg") center / contain no-repeat;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 32px;
+            transition: all 0.3s ease-in-out;
+
+        }
+        @include laptop{
+            &:hover{
+                &::before{
+                    right: 24px;
+                }
+            }
+        }
+    }
+}
