@@ -1,0 +1,40 @@
+.navigation {
+
+    // .navigation__list
+
+    &__list {
+        display: none;
+        @include desktop{
+            display: flex;
+        }
+    }
+
+    // .navigation__item
+
+    &__item {
+    }
+
+    // .navigation__link
+
+    &__link {
+    }
+
+    // .navigation__btn
+
+    &__btn {
+        width: 36px;
+        height: 36px;
+        background: url("../img/header/menu.svg") center/contain no-repeat;
+        transition: all 0.5s ease-in-out;
+        &--active{
+            background: url("../img/header/menu--active.svg");
+        }
+        @include laptop{
+            width: 50px;
+            height: 50px;
+        }
+        @include desktop{
+            display: none;
+        }
+    }
+}

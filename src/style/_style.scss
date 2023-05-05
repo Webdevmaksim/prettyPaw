@@ -5,10 +5,7 @@ body {
   background-color: $back;
   line-height: 1.4;
   font-size: 16px;
-}
-.header{
-  &__logo{
-    // color: $main;
-    background-color: $main;
+  @include laptop{
+    font-size: 20px;
   }
 }
