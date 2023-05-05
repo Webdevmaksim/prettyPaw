@@ -20,10 +20,7 @@
     // .header__logo
 
     &__logo {
-        width: 200px;
-        @include laptop{
-            width: 360px;
-        }
+        
     }
 
     // .header__nav

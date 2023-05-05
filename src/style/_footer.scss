@@ -1,0 +1,112 @@
+.footer {
+    padding: 60px 0px 30px;
+    // .footer__container
+
+    &__container {
+        @include tablet{
+            display: grid;
+            grid-template-areas: 
+            "logo . socials"
+            "copyright . developers"
+            ;
+            grid-template-columns: repeat(3, 1fr);
+            row-gap: 40px;
+        }
+        @include desktop{
+            row-gap: 72px;
+        }
+    }
+
+    // .footer__logo
+
+    &__logo {
+        margin-bottom: 32px;
+        display: block;
+        transition: all 0.4s ease-in-out;
+        @include tablet{
+            grid-area: logo;
+            margin-bottom: 0;
+        }
+        @include laptop{
+            &:hover{
+                cursor: pointer;
+                opacity: 0.5;
+            }
+        }
+    }
+
+    // .footer__social-list
+
+    &__social-list {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 52px;
+        @include tablet{
+            margin-bottom: 0;
+            grid-area: socials;
+        }
+        @include laptop{
+            gap: 36px;
+        }
+    }
+
+    // .footer__social-item
+
+    &__social-item {
+        transition: all 0.4s ease-in-out;
+        @include laptop{
+            &:hover{
+                cursor: pointer;
+                opacity: 0.5;
+            }
+        }
+    }
+
+
+    // .footer__developers
+
+    &__developers {
+        display: flex;
+        flex-direction: column;
+        gap: 19px;
+        margin-bottom: 52px;
+        @include tablet{
+            margin-bottom: 0;
+            grid-area: developers;
+        }
+        @include laptop{
+            gap: 16px;
+        }
+    }
+
+    // .footer__developer
+
+    &__developer {
+        font-size: 16px;
+        & a{
+            transition: all 0.5s ease-in-out;
+            @include laptop{
+                &:hover{
+                    cursor: pointer;
+                    opacity: 0.5;
+                }
+            }
+        }
+        @include laptop{
+            font-size: 20px;
+        }
+    }
+
+    // .footer__copyright
+
+    &__copyright {
+        font-size: 16px;
+        @include tablet{
+            grid-area: copyright;
+        }
+        @include laptop{
+            font-size: 20px;
+        }
+    }
+}
+
