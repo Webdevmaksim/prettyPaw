@@ -1,0 +1,12 @@
+.swiper-pagination-bullet{
+    background-color: $second;
+    opacity: 1;
+    width: 10px;
+    height: 10px;
+    transition: all 0.4s ease-in-out;
+}
+.swiper-pagination-bullet-active{
+    background-color: $back;
+    width: 40px;
+    border-radius: 16px;
+}

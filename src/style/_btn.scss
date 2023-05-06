@@ -11,7 +11,7 @@
         padding: 10px 20px;
         color: $back;
         background: $second;
-        padding-right: 58px;
+        padding-right: 40px;
         cursor: pointer;
         &::before{
             position: absolute;
@@ -24,9 +24,12 @@
             transform: translateY(-50%);
             right: 32px;
             transition: all 0.3s ease-in-out;
-
         }
         @include laptop{
+            font-size: 20px;
+            padding: 18px 32px;
+            padding-right: 58px;
+
             &:hover{
                 &::before{
                     right: 24px;
