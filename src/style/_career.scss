@@ -1,0 +1,158 @@
+.career {
+
+    // .career__container
+
+    &__container {
+    }
+
+    // .career__content
+
+    &__content {
+        display: grid;
+        grid-template-areas: 
+        "title"
+        "text"
+        "btn"
+        ;
+        row-gap: 24px;
+        margin-bottom: 40px;
+        @include tablet{
+            grid-template-areas: 
+            "title btn"
+            "text ."
+            ;
+            grid-template-columns: 528px 1fr;
+        }
+        @include laptop{
+            row-gap: 40px;
+            margin-bottom: 50px;
+            grid-template-columns: 720px 1fr;
+        }
+    }
+
+    // .career__title
+
+    &__title {
+        grid-area: title;
+        color: $second;
+        font-weight: 1000;
+        font-size: 32px;
+        text-transform: uppercase;
+        // margin-bottom: 24px;
+        @include laptop{
+            font-size: 52px;
+            // margin-bottom: 40px;
+        }
+    }
+
+    // .career__text
+
+    &__text {
+        grid-area: text;
+    }
+
+    // .career__link
+
+    &__link {
+        grid-area: btn;
+        align-self: end;
+        max-height: 36px;
+        max-width: 155px;
+        @include tablet{
+            justify-self: end;
+            align-self: start;
+        }
+        @include laptop{
+            max-height: 50px;
+            max-width: 209px;
+        }
+    }
+
+    // .career__pictures
+
+    &__pictures {
+    }
+
+    // .career__slider
+
+    &__slider {
+        @include tablet{
+            max-width: 635px;
+        }
+        @include laptop{
+            max-width: 960px;
+        }
+        @include desktop{
+            max-width: 1420px;
+        }
+    }
+    &__slider-pagination{
+        @include tablet{
+            display: none;
+        }
+    }
+
+    // .career__img-list
+
+    &__img-list {
+        align-items: center;
+    }
+
+    // .career__img-item
+
+    &__img-item {
+        width: fit-content;
+        position: relative;
+        padding: 0px 20px;
+        &:first-child{
+            padding-left: 0;
+        }
+        &:last-child{
+            padding-right: 0;
+        }
+        @include tablet {
+            padding: 0px 10px;
+        }
+        @include laptop{
+            padding: 0px 13px;
+        }
+        @include desktop{
+            padding: 0px 15px;
+        }
+        &:nth-child(2n){
+            & picture{
+                @include tablet{
+                    width: 177px;
+                    height: 177px;
+                }
+                @include laptop{
+                    width: 241px;
+                    height: 241px;
+                }
+                @include desktop{
+                    width: 275px;
+                    height: 275px;
+                }
+            }
+        }
+        & picture{
+            display: block;
+            @include tablet{
+                width: 244px;
+                height: 244px;
+            }
+            @include laptop{
+                width: 333px;
+                height: 333px;
+            }
+            @include desktop{
+                width: 379px;
+                height: 379px;
+            }
+        }
+        & img{
+            border-radius: 16px;
+        }
+        
+    }
+}

@@ -4,6 +4,7 @@
 
     &__list {
         display: none;
+        gap: 8px;
         @include desktop{
             display: flex;
         }
@@ -12,11 +13,34 @@
     // .navigation__item
 
     &__item {
+        color: $second;
+        padding: 20px 32px;
+        border: 2px solid $back;
+        transition: all 0.3s ease-in-out;
+        @include desktop{
+            cursor: pointer;
+            &:not(.navigation__item--active){
+                &:hover{
+                    background-color: $back;
+                }
+            }
+            &:is(.navigation__item--active){
+                &:hover{
+                    cursor: not-allowed;
+                }
+            }
+        }
+        &--active{
+            background-color: $back;
+        }
     }
 
     // .navigation__link
 
     &__link {
+        &:hover{
+            cursor: inherit;
+        }
     }
 
     // .navigation__btn
