@@ -4,20 +4,22 @@ import 'swiper/scss';
 import 'swiper/scss/pagination';
 import './index.scss';
 import { sliderInit } from './modules/sliders';
+import locationCard from './modules/location';
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
-        // ! - USE MODULES
-    const videoBG = document.querySelector('.video-bg');
-    // video.style.cssText = `
-    //     border: 20px solid red;
-    // `;
-    videoBG.innerHTML = `
-    <source src="video/video.webm" type="video/webm">
-    <source src="video/video.mp4" type="video/mp4">
+    // ! - USE MODULES
+    // ! - video#1
+    const videoContent = `
+        <source src="video/video.webm" type="video/webm">
+        <source src="video/video.mp4" type="video/mp4">
     `;
 
+    const videoBG = document.querySelector('.video-bg');
+    videoBG.innerHTML = videoContent;
+
+    // ! - slides
     const aboutSlider = sliderInit('.about__slider', {
         speed: 2000,
         pagination: {
@@ -34,8 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
             clickable: true,
             bulletElement: 'button'
         },
-        autoplay: false,
+        autoplay: true,
         slidesPerView: 'auto',
         spaceBetween: 0
     });
+
+    locationCard();
 });

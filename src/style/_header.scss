@@ -20,7 +20,12 @@
     // .header__logo
 
     &__logo {
-        
+        transition:  all 0.3s ease-in-out;
+        @include laptop{
+            &:hover{
+                opacity: 0.7;
+            }
+        }
     }
 
     // .header__nav
