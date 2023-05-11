@@ -77,6 +77,10 @@
         @include desktop{
             gap: 60px;
         }
+        @include desktop-xl{
+            min-height: 600px;
+            height: min-content;
+        }
     }
 
     // .about__descr
