@@ -1,5 +1,10 @@
 .career {
-
+    @include tablet{
+        padding-top: 80px;
+    }
+    @include laptop{
+        padding-top: 100px;
+    }
     // .career__container
 
     &__container {

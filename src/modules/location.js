@@ -1,4 +1,3 @@
-import { document } from "postcss";
 import { locationDB } from "../database/DB";
 import { createElement } from "./utilities/createElem";
 
@@ -11,7 +10,8 @@ function locationCard(){
             this.imgName = imgName;
             this.parent = document.querySelector(parentSelector);
             this.classElem = classElem;
-            // this.renderImg();
+            
+            
         }
         render(){
             const titleElem = createElement('h3',{
@@ -40,25 +40,49 @@ function locationCard(){
                 className: this.classElem,
             },{
                 appends:  [titleElem, textElem,imgWrap],
-                cb(elem){
-                        elem.addEventListener('mouseover', function(){
-                            this.style.cssText = `
-                                border: 1px solid red;
-                            `;
-                            
-                        });
-                        elem.addEventListener('mouseleave', function(){
-                            this.style.cssText = `
-                                border: none;
-                            `;
-                        });
-                    
-                    
-                }
+            });
+
+            element.addEventListener('mouseover', ()=>{
+                element.append(createElement('div',{
+                    className: 'location__item--fragment'
+                }));
+
+                const title = element.querySelector('.location__title');
+                title.style.cssText = `
+                    position: static;
+                    transform: rotate(0);
+                    color: #FFAA05;
+                    `;
+                // title.style.transform = 'rotate(2deg)';
+
+                const text = element.querySelector('.location__descr');
+                text.style.transform = 'translateY(24px)';
+                text.style.opacity = '1';
+
+                let section = document.querySelector('.location');
+            });
+
+            element.addEventListener('mouseout', ()=>{
+                const title = element.querySelector('.location__title');
+                title.style.cssText = `
+                    position: absolute;
+                    transform: rotate(270deg) translate(-50%,-50%);
+                    color: #FFFFFF;
+                    `;
+
+                const text = element.querySelector('.location__descr');
+                
+                text.style.opacity = '0';
+                text.style.transform = 'translateY(-200%)';
+                
+
+                const remove = element.querySelector('.location__item--fragment');
+                remove.remove();
             });
 
             this.parent.append(element);
         }
+        
     }
 
     locationDB.forEach(elem=>{

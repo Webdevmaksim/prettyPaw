@@ -5,19 +5,14 @@ import 'swiper/scss/pagination';
 import './index.scss';
 import { sliderInit } from './modules/sliders';
 import locationCard from './modules/location';
+import { videoBgIn } from './modules/videoBg';
 
 
 
 document.addEventListener('DOMContentLoaded', () => {
     // ! - USE MODULES
     // ! - video#1
-    const videoContent = `
-        <source src="video/video.webm" type="video/webm">
-        <source src="video/video.mp4" type="video/mp4">
-    `;
-
-    const videoBG = document.querySelector('.video-bg');
-    videoBG.innerHTML = videoContent;
+    videoBgIn();
 
     // ! - slides
     const aboutSlider = sliderInit('.about__slider', {
