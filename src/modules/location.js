@@ -37,48 +37,52 @@ function locationCard(){
             });
 
             const element = createElement('li',{
-                className: this.classElem,
+                className: `${this.classElem} location__item--${this.imgName}`, 
             },{
-                appends:  [titleElem, textElem,imgWrap],
+                appends:  [
+                    titleElem, 
+                    textElem, 
+                    // imgWrap
+                ],
             });
 
-            element.addEventListener('mouseover', ()=>{
-                element.append(createElement('div',{
-                    className: 'location__item--fragment'
-                }));
+            // element.addEventListener('mouseover', ()=>{
+            //     element.append(createElement('div',{
+            //         className: 'location__item--fragment'
+            //     }));
 
-                const title = element.querySelector('.location__title');
-                title.style.cssText = `
-                    position: static;
-                    transform: rotate(0);
-                    color: #FFAA05;
-                    `;
-                // title.style.transform = 'rotate(2deg)';
+            //     const title = element.querySelector('.location__title');
+            //     title.style.cssText = `
+            //         position: static;
+            //         transform: rotate(0);
+            //         color: #FFAA05;
+            //         `;
+            //     // title.style.transform = 'rotate(2deg)';
 
-                const text = element.querySelector('.location__descr');
-                text.style.transform = 'translateY(24px)';
-                text.style.opacity = '1';
+            //     const text = element.querySelector('.location__descr');
+            //     text.style.transform = 'translateY(24px)';
+            //     text.style.opacity = '1';
 
-                let section = document.querySelector('.location');
-            });
+            //     let section = document.querySelector('.location');
+            // });
 
-            element.addEventListener('mouseout', ()=>{
-                const title = element.querySelector('.location__title');
-                title.style.cssText = `
-                    position: absolute;
-                    transform: rotate(270deg) translate(-50%,-50%);
-                    color: #FFFFFF;
-                    `;
+            // element.addEventListener('mouseout', ()=>{
+            //     const title = element.querySelector('.location__title');
+            //     title.style.cssText = `
+            //         position: absolute;
+            //         transform: rotate(270deg) translate(-50%,-50%);
+            //         color: #FFFFFF;
+            //         `;
 
-                const text = element.querySelector('.location__descr');
+            //     const text = element.querySelector('.location__descr');
                 
-                text.style.opacity = '0';
-                text.style.transform = 'translateY(-200%)';
+            //     text.style.opacity = '0';
+            //     text.style.transform = 'translateY(-200%)';
                 
 
-                const remove = element.querySelector('.location__item--fragment');
-                remove.remove();
-            });
+            //     const remove = element.querySelector('.location__item--fragment');
+            //     remove.remove();
+            // });
 
             this.parent.append(element);
         }

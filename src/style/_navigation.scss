@@ -3,25 +3,53 @@
     // .navigation__list
 
     &__list {
+        position: absolute;
+        overflow-y: hidden;
+        background-color: $main;
+        color: $second;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+        padding-top: 120px;
+        padding-bottom: 120px;
+        text-align: center;
+
         display: none;
-        gap: 8px;
+        @include laptop{
+            padding-top: 146px;
+            padding-bottom: 146px;
+        }
         @include desktop{
+            gap: 8px;
             display: flex;
+            align-items: center;
+            position: static;
+            padding: 0;
+            width: unset;
+            height: auto;
         }
     }
 
     // .navigation__item
 
     &__item {
-        color: $second;
-        padding: 20px 32px;
-        border: 2px solid $back;
-        transition: all 0.3s ease-in-out;
+        display: block;
+        margin-bottom: 40px;
+        &:last-child{
+            margin-bottom: 0;
+        }
         @include desktop{
+            display: flex;
+            margin-bottom: unset;
+            border: 2px solid $back;
+            padding: 20px 32px;
+            transition: all 0.3s ease-in-out;
             cursor: pointer;
             &:not(.navigation__item--active){
                 &:hover{
-                    background-color: $back;
+                    color: $back;
                 }
             }
             &:is(.navigation__item--active){
@@ -29,15 +57,21 @@
                     cursor: not-allowed;
                 }
             }
+            
         }
         &--active{
-            background-color: $back;
+            color: $back;
+            @include desktop{
+                color: $second;
+                background-color: $back;
+            }
         }
     }
 
     // .navigation__link
 
     &__link {
+        white-space: nowrap;
         &:hover{
             cursor: inherit;
         }
