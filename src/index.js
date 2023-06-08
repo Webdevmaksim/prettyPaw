@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // ! - careerSlider
     const careerSlider = sliderInit('.career__slider', {
         speed: 2000,
         pagination: {
@@ -36,6 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
         autoplay: true,
         slidesPerView: 'auto',
         spaceBetween: 0
+    });
+
+    const careerSlides = document.querySelectorAll('.career__img-item');
+    console.log(careerSlides);
+    careerSlides.forEach((elem, i)=>{
+        elem.classList.add(`career__img-item${ i % 2 ? 'career__img-item--true' : 'career__img-item--false'}`);
     });
 
     locationCard();
