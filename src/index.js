@@ -27,6 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ! - careerSlider
+    const careerSlides = document.querySelectorAll('.career__img-item');
+    
+    careerSlides.forEach((elem, i)=>{
+        elem.classList.add(`career__img-item--${ i % 2 ? 'even' : 'odd'}`);
+    });
     const careerSlider = sliderInit('.career__slider', {
         speed: 2000,
         pagination: {
@@ -35,15 +40,23 @@ document.addEventListener('DOMContentLoaded', () => {
             bulletElement: 'button'
         },
         autoplay: true,
-        slidesPerView: 'auto',
-        spaceBetween: 0
+        spaceBetween: 12,
+        breakpoints: {
+            576: {
+                slidesPerView: 'auto',
+                spaceBetween: 20
+            },
+            768: {
+                slidesPerView: 'auto',
+                spaceBetween: 26
+            },
+            1240: {
+                slidesPerView: 'auto',
+                spaceBetween: 30
+            }
+        }
     });
 
-    const careerSlides = document.querySelectorAll('.career__img-item');
-    console.log(careerSlides);
-    careerSlides.forEach((elem, i)=>{
-        elem.classList.add(`career__img-item${ i % 2 ? 'career__img-item--true' : 'career__img-item--false'}`);
-    });
-
+    // ! - cards initialization
     locationCard();
 });

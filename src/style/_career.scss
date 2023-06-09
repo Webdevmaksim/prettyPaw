@@ -82,13 +82,13 @@
 
     &__slider {
         @include tablet{
-            max-width: 635px;
+            max-width: 704px;
         }
         @include laptop{
             max-width: 960px;
         }
         @include desktop{
-            max-width: 1420px;
+            max-width: 1398px;
         }
     }
     &__slider-pagination{
@@ -106,55 +106,47 @@
     // .career__img-item
 
     &__img-item {
-        width: fit-content;
-        position: relative;
-        padding: 0px 20px;
-        &:first-child{
-            padding-left: 0;
+        height: unset;
+        display: flex;
+        align-items: center;
+        @include mobile{
+            width: 48%;
         }
-        &:last-child{
-            padding-right: 0;
-        }
-        @include tablet {
-            padding: 0px 10px;
-        }
-        @include laptop{
-            padding: 0px 13px;
-        }
-        @include desktop{
-            padding: 0px 15px;
-        }
-        &:nth-child(2n){
-            & picture{
-                @include tablet{
-                    width: 177px;
-                    height: 177px;
-                }
-                @include laptop{
-                    width: 241px;
-                    height: 241px;
-                }
-                @include desktop{
-                    width: 275px;
-                    height: 275px;
-                }
-            }
-        }
-        & picture{
-            display: block;
+        &--even{
             @include tablet{
-                width: 244px;
-                height: 244px;
+                width: 25%;
             }
             @include laptop{
-                width: 333px;
-                height: 333px;
-            }
-            @include desktop{
-                width: 379px;
-                height: 379px;
+                width: 20%;
             }
         }
+        &--odd{
+            @include tablet{
+                width: 34%;
+            }
+            @include laptop{
+                width: 27%;
+            }
+        }
+        // width: fit-content;
+        // position: relative;
+        // padding: 0px 20px;
+        // &:first-child{
+        //     padding-left: 0;
+        // }
+        // &:last-child{
+        //     padding-right: 0;
+        // }
+        // @include tablet {
+        //     padding: 0px 10px;
+        // }
+        // @include laptop{
+        //     padding: 0px 13px;
+        // }
+        // @include desktop{
+        //     padding: 0px 15px;
+        // }
+        
         & img{
             border-radius: 16px;
         }
