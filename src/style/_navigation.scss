@@ -4,7 +4,7 @@
 
     &__list {
         position: absolute;
-        overflow-y: hidden;
+        overflow-y: auto;
         background-color: $main;
         color: $second;
         top: 0;

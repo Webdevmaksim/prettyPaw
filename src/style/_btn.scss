@@ -14,6 +14,7 @@
         padding-right: 40px;
         border: 2px solid transparent;
         transition: all 0.2s ease-in-out;
+        outline: none;
         &::before{
             position: absolute;
             content: "";
@@ -30,6 +31,9 @@
             transition: all 0.3s ease-in-out;
             // ? 15:00 тайминг! 
         }
+        &:focus:not(:hover){
+            border: 2px solid $main;
+        }
         @include laptop{
             font-size: 20px;
             padding: 18px 32px;
@@ -38,7 +42,12 @@
             &:hover{
                 color: $main;
                 &::before{
-                    // bgcolor: $main;
+                    width: 16px;
+                    height: 16px;
+                    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.5333 10.8666C5.41107 10.7444 5.34707 10.5888 5.3413 10.4C5.33552 10.2111 5.39396 10.0555 5.51663 9.93328L8.78329 6.66662H1.33329C1.14441 6.66662 0.985962 6.60262 0.857962 6.47462C0.729962 6.34662 0.666184 6.1884 0.666628 5.99995C0.666628 5.81106 0.730628 5.65262 0.858628 5.52462C0.986628 5.39662 1.14485 5.33284 1.33329 5.33328H8.78329L5.51663 2.06662C5.39441 1.9444 5.33596 1.78884 5.3413 1.59995C5.34663 1.41106 5.41063 1.25551 5.5333 1.13328C5.65552 1.01106 5.81107 0.949951 5.99996 0.949951C6.18885 0.949951 6.34441 1.01106 6.46663 1.13328L10.8666 5.53328C10.9333 5.58884 10.9806 5.6584 11.0086 5.74195C11.0366 5.82551 11.0504 5.91151 11.05 5.99995C11.05 6.08884 11.0362 6.17217 11.0086 6.24995C10.9811 6.32773 10.9337 6.39995 10.8666 6.46662L6.46663 10.8666C6.34441 10.9888 6.18885 11.05 5.99996 11.05C5.81107 11.05 5.65552 10.9888 5.5333 10.8666Z' fill='black'/%3E%3C/svg%3E%0A");
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: contain;        
                 }
             }
         }

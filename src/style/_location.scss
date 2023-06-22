@@ -128,14 +128,14 @@
         text-transform: uppercase;
         white-space: nowrap;
         @include laptop{
-            position: absolute;
-            margin-bottom: 0;
-            top: 50%;
-            left: 50%;
             font-size: 20px;
+            margin-bottom: 0;
             color: $second;
-            transform: rotate(-90deg) translate(-50%, -50%);
-            transform-origin: top left;
+            padding: 0px 20px;
+        }
+        @include desktop{
+            font-size: 32px;
+            padding: 0px 30px;
         }
     }
     &__descr{
@@ -145,8 +145,12 @@
         line-height: 1;
         @include laptop{
             display: none;
-            font-size: 20px;
             text-align: center;
+            padding: 0px 20px;
+        }
+        @include desktop{
+            font-size: 20px;
+            padding: 0px 30px;
         }
     }
     &__item{
@@ -192,7 +196,7 @@
         }
         @include laptop{
             background-image: none;
-            flex: 0 0 calc(100% / 5);
+            width: 20%;
         }
         &--mammals::before{
             background-image: url('../img/location/mammals.jpg');
@@ -332,11 +336,29 @@
     }
     
     &__list{
+        z-index: 10;
+        --opacity: none;
+        --backgroud-image: none;
         @include laptop{
             display: flex;
             justify-content: space-between;
             min-height: 552px;
-            background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+            &::before{
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                inset: 0;
+                z-index: -1;
+                background-position: center;
+                background-size: cover;
+                opacity: var(--opacity);
+                background-image: var(--backgroud-image);
+            }
         }
         @include desktop{
             min-height: 780px;
@@ -349,5 +371,15 @@
     }
     &__video-bg{
         z-index: -1;
+    }
+    &__content{
+        @include laptop{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 20px;
+            transform: rotate(-90deg) translate(-50%, -50%);
+            transform-origin: top left;
+        }
     }
 }

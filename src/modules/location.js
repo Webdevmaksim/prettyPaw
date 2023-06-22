@@ -1,7 +1,8 @@
+import { gsap } from "gsap";
 import { locationDB } from "../database/DB";
 import { createElement } from "./utilities/createElem";
 
-
+// ! - важный момент с 43:10
 function locationCard(){
     class CardElem{
         constructor(title, p, imgName, parentSelector, classElem){
@@ -10,7 +11,6 @@ function locationCard(){
             this.imgName = imgName;
             this.parent = document.querySelector(parentSelector);
             this.classElem = classElem;
-            
             
         }
         render(){
@@ -39,11 +39,14 @@ function locationCard(){
             const element = createElement('li',{
                 className: `${this.classElem} location__item--${this.imgName}`, 
             },{
-                appends:  [
-                    titleElem, 
-                    textElem, 
-                    // imgWrap
-                ],
+                append: createElement('div',{
+                    className: 'location__content'
+                },{
+                    appends: [
+                        titleElem,
+                        textElem
+                    ]
+                })
             });
 
             // element.addEventListener('mouseover', ()=>{
@@ -83,10 +86,64 @@ function locationCard(){
             //     const remove = element.querySelector('.location__item--fragment');
             //     remove.remove();
             // });
+            const mediaQueryXL = window.matchMedia('(min-width: 1280px)');
+            const mediaQueryLaptop = window.matchMedia('(min-width: 1024px)');
 
+            const contentWrap = document.querySelector('.location__item');
+            
+            const tl = gsap.timeline(
+                {
+                    paused: true,
+
+                }
+            );
+
+            tl.to(
+                    contentWrap,
+                    {
+                        opacity: 0,
+                        duration: 0.5
+                    }
+            )
+            .to(contentWrap,
+                {
+                    transform: 'none',
+                    left: 0,
+                    bottom: 0,
+                    top: 'auto',
+                    height: '100%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    duration: 0
+                }
+            )
+            .to(titleElem,{
+                whiteSpace: 'unset',
+                hyphens: 'auto',
+                color: '#FFAA05',
+                marginBottom: mediaQueryXL.matches ? '40px' : '24px',
+                duration: 0
+            })
+            .to(textElem,{
+                opacity: 1,
+                duration: 0.5
+            });
+            // ! - 54:00
+            element.addEventListener('mouseenter',()=>{
+                if(mediaQueryLaptop.matches){
+
+                }
+            });
+
+            element.addEventListener('mouseleave',()=>{
+                if(mediaQueryLaptop.matches){
+
+                }
+            });
+            
             this.parent.append(element);
         }
-        
     }
 
     locationDB.forEach(elem=>{
